@@ -1,0 +1,12 @@
+<div class="flex flex-wrap flex-row gap-2">
+    <mat-card class="mesh-card bg-slate-50 basis-1/4 shrink shadow-lg" *ngFor="let item of meshes; index as i">
+        <mat-card-header>
+            <mat-card-title>Object {{ i }}</mat-card-title>
+            <mat-card-subtitle>{{ item.describeBounds() }}</mat-card-subtitle>
+        </mat-card-header>
+        <stl-model-viewer mat-card-lg-image [stlModels]="[item.getRawFile()]"></stl-model-viewer>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="downloadMesh([i])">Download</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
